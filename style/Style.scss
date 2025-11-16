@@ -1,0 +1,677 @@
+//==================================
+// 1. Variables and Basic Setup
+//==================================
+:root {
+    --primary-color: #007BFF;
+    --secondary-color: #6c757d;
+    --success-color: #28a745;
+    --danger-color: #dc3545;
+    --highlight-color: #ffc107;
+
+    // Light Mode
+    --bg-color-light: #f8f9fa;
+    --text-color-light: #212529;
+    --card-bg-light: #ffffff;
+    --navbar-bg-light: rgba(255, 255, 255, 0.85);
+    --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+    // Dark Mode
+    --bg-color-dark: #121212;
+    --text-color-dark: #e0e0e0;
+    --card-bg-dark: #1e1e1e;
+    --navbar-bg-dark: rgba(20, 20, 20, 0.85);
+    --shadow-dark: 0 4px 15px rgba(0, 0, 0, 0.3);
+
+    // Color Coding
+    --color1: #E91E63; // Dictionary
+    --color2: #9C27B0; // Also
+    --color3: #4CAF50; // Reading
+    --color4: #FF9800; // Rules
+    --color5: #03A9F4; // Notebook
+    --color6: #f44336; // Pen
+    --color7: #795548; // Total
+    --color8: #607D8B; // Thirty
+    --color9: #2196F3; // Say
+    // Color Coding for Dialogue 2
+    --d2-color1: #00BCD4; // Fish
+    --d2-color2: #8D6E63; // Meat
+    --d2-color3: #FFEB3B; // Chicken
+    --d2-color4: #E91E63; // You (f.) want
+    --d2-color5: #4CAF50; // Cucumber
+    --d2-color6: #EFEBE9; // Onion (light color for dark mode)
+    --d2-color7: #F44336; // Tomatoes
+    --d2-color8: #CFD8DC; // Sugar
+    --d2-color9: #795548; // Tea
+    --d2-color10: #4E342E; // Coffee beans
+    --d2-color11: #FFC107; // Tray of eggs
+    --d2-color12: #B0BEC5; // Box of salt
+    --d2-color13: #673AB7; // Eighty
+
+    // Color Coding for Dialogue 3
+    --d3-color1: #9C27B0; // Shirt
+    --d3-color2: #009688; // Section
+    --d3-color3: #FAFAFA; // White
+    --d3-color4: #FFEB3B; // Yellow
+    --d3-color5: #2196F3; // Blue
+    --d3-color6: #f44336; // Red
+    --d3-color7: #212121; // Black
+    --d3-color8: #FF9800; // How much
+    --d3-color9: #CDDC39; // Twenty
+    --d3-color10: #4CAF50; // I will buy
+    --d3-color11: #795548; // Thobes
+    --d3-color12: #607D8B; // Fifty
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Noto Naskh Arabic", serif;
+    background-color: var(--bg-color-light);
+    color: var(--text-color-light);
+    transition: background-color 0.3s, color 0.3s;
+    line-height: 1.7;
+}
+
+.ar,
+.character,
+.section-title,
+.logo,
+.lesson-header h2 {
+    font-family: "Noto Naskh Arabic", serif;
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+// Dark Mode Class
+body.dark-mode {
+    background-color: var(--bg-color-dark);
+    color: var(--text-color-dark);
+
+    .d2-color6 {
+        color: #A1887F;
+    }
+
+    // Darker onion color for dark mode
+    .d2-color10 {
+        color: #BCAAA4;
+    }
+
+    // Lighter coffee color for dark mode
+}
+
+//==================================
+// 2. Reusable Components & Helpers
+//==================================
+.card {
+    background: var(--card-bg-light);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: var(--shadow-light);
+    margin-bottom: 2rem;
+    transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+
+    body.dark-mode & {
+        background: var(--card-bg-dark);
+        box-shadow: var(--shadow-dark);
+    }
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+
+        body.dark-mode & {
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+        }
+    }
+}
+
+.highlight {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+// Color coding classes
+@for $i from 1 through 9 {
+    .color#{$i} {
+        color: var(--color#{$i});
+        font-weight: bold;
+    }
+}
+
+@for $i from 1 through 13 {
+    .d2-color#{$i} {
+        color: var(--d2-color#{$i});
+        font-weight: bold;
+    }
+}
+
+@for $i from 1 through 12 {
+    .d3-color#{$i} {
+        color: var(--d3-color#{$i});
+        font-weight: bold;
+    }
+}
+
+//==================================
+// 3. Navbar
+//==================================
+.navbar {
+    background: var(--navbar-bg-light);
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-light);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    transition: background-color 0.3s;
+
+    body.dark-mode & {
+        background: var(--navbar-bg-dark);
+        box-shadow: var(--shadow-dark);
+
+        .d3-color3 {
+            color: #BDBDBD;
+        }
+
+        // Darker white for dark mode
+        .d3-color7 {
+            color: #E0E0E0;
+        }
+
+        // Lighter black for dark mode
+    }
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        font-size: 1.8rem;
+        color: var(--primary-color);
+        font-weight: 700;
+    }
+
+    .nav-links {
+        display: flex;
+        list-style: none;
+
+        li {
+            margin: 0 15px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            font-weight: 600;
+            font-size: 1rem;
+            position: relative;
+            padding-bottom: 5px;
+            transition: color 0.3s;
+
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                width: 0;
+                height: 2px;
+                background-color: var(--primary-color);
+                transition: width 0.3s ease-out;
+            }
+
+            &:hover {
+                color: var(--primary-color);
+
+                &::after {
+                    width: 100%;
+                    left: 0;
+                    right: auto;
+                }
+            }
+        }
+    }
+}
+
+.theme-toggle-btn {
+    background: none;
+    border: 1px solid var(--secondary-color);
+    color: var(--secondary-color);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s;
+
+    .fa-moon {
+        display: none;
+    }
+
+    body.dark-mode & {
+        .fa-sun {
+            display: none;
+        }
+
+        .fa-moon {
+            display: inline-block;
+        }
+    }
+
+    &:hover {
+        background-color: var(--primary-color);
+        color: #fff;
+        border-color: var(--primary-color);
+    }
+}
+
+//==================================
+// 4. Main Content Sections
+//==================================
+main {
+    padding-top: 3rem;
+}
+
+.lesson-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    animation: fadeInDown 0.8s ease-out;
+
+    h2 {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .en-translation {
+        font-size: 1.2rem;
+        color: var(--secondary-color);
+
+        body.dark-mode & {
+            color: #aaa;
+        }
+    }
+}
+
+.lesson-section {
+    margin-bottom: 3rem;
+    animation: fadeInUp 0.8s ease-out;
+
+    .section-title {
+        font-size: 2rem;
+        border-bottom: 3px solid var(--primary-color);
+        display: inline-block;
+        padding-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
+    }
+}
+
+.image-placeholder {
+    border: 2px dashed var(--secondary-color);
+    border-radius: 8px;
+    padding: 3rem 1rem;
+    text-align: center;
+    color: var(--secondary-color);
+    margin-bottom: 2rem;
+
+    body.dark-mode & {
+        border-color: #555;
+        color: #777;
+    }
+}
+
+//==================================
+// 5. Section-Specific Styles
+//==================================
+
+// Dialogue
+.dialogue-content {
+    .dialogue-line {
+        margin-bottom: 1.5rem;
+        border-right: 3px solid var(--primary-color);
+        padding-right: 15px;
+    }
+
+    .character {
+        font-weight: 700;
+        font-size: 1.2rem;
+        display: block;
+    }
+
+    .ar {
+        font-size: 1.3rem;
+        margin-top: 0.25rem;
+    }
+
+    .en {
+        font-size: 1.1rem;
+        color: var(--secondary-color);
+
+        body.dark-mode & {
+            color: #aaa;
+        }
+    }
+}
+
+// Vocabulary & Numbers
+.vocab-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.vocab-card {
+    text-align: center;
+    padding: 1.5rem;
+
+    h4 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+    }
+
+    p {
+        color: var(--secondary-color);
+
+        body.dark-mode & {
+            color: #aaa;
+        }
+    }
+
+    .audio-icon {
+        cursor: pointer;
+        margin-left: 10px;
+        color: var(--primary-color);
+        transition: transform 0.2s;
+
+        &:hover {
+            transform: scale(1.2);
+        }
+    }
+}
+
+// Quiz
+.quiz-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.quiz-question {
+    .question-text {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+    }
+
+    .options {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    .option {
+        padding: 10px 15px;
+        font-size: 1rem;
+        font-family: inherit;
+        cursor: pointer;
+        border: 2px solid var(--secondary-color);
+        background: transparent;
+        color: inherit;
+        border-radius: 8px;
+        transition: all 0.3s;
+
+        &:hover:not(:disabled) {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: #fff;
+        }
+
+        &.correct {
+            background-color: var(--success-color);
+            border-color: var(--success-color);
+            color: #fff;
+        }
+
+        &.incorrect {
+            background-color: var(--danger-color);
+            border-color: var(--danger-color);
+            color: #fff;
+        }
+
+        &:disabled {
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+    }
+
+    .feedback {
+        margin-top: 1rem;
+        font-weight: bold;
+    }
+}
+
+//==================================
+// 6. Footer
+//==================================
+.footer {
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 2rem;
+    border-top: 1px solid #ddd;
+    font-size: 0.9rem;
+    color: var(--secondary-color);
+
+    body.dark-mode & {
+        border-top-color: #333;
+        color: #777;
+    }
+}
+
+// Inside the .navbar section in your SCSS
+.logo-link {
+    text-decoration: none;
+}
+
+.book-subtitle {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: var(--secondary-color);
+    margin-right: 5px;
+}
+
+// Inside the .lesson-header section or a new section in your SCSS
+.main-title {
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: var(--secondary-color);
+    margin-bottom: 0.25rem;
+
+    body.dark-mode & {
+        color: #aaa;
+    }
+}
+
+.en-main-title {
+    font-size: 1rem;
+    color: #999;
+
+    body.dark-mode & {
+        color: #777;
+    }
+}
+
+.title-divider {
+    width: 80px;
+    margin: 1.5rem auto;
+    border: 1px solid var(--primary-color);
+    opacity: 0.5;
+}
+
+// ... Inside your .navbar section ...
+.hamburger {
+    display: none; // Hide on desktop
+}
+
+//==================================
+// 8. Responsive Design (Media Queries)
+//==================================
+
+// For Tablets and smaller devices (max-width: 768px)
+@media (max-width: 768px) {
+    .container {
+        padding: 0 15px;
+    }
+
+    // --- Navbar for mobile ---
+    .navbar {
+        .nav-links {
+            position: fixed;
+            top: 0;
+            right: -100%; // Start off-screen
+            width: 70%;
+            height: 100vh;
+            background-color: var(--card-bg-light);
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            transition: right 0.4s ease-in-out;
+
+            body.dark-mode & {
+                background-color: var(--card-bg-dark);
+            }
+
+            li {
+                margin: 20px 0;
+            }
+
+            a {
+                font-size: 1.2rem;
+            }
+
+            // Class to show the menu
+            &.active {
+                right: 0;
+            }
+        }
+
+        .nav-controls {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .hamburger {
+            display: block; // Show hamburger on mobile
+            background: none;
+            border: none;
+            color: inherit;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 1001; // Keep it above the nav-links
+        }
+    }
+
+    // Hide hamburger by default in the main SCSS for desktop
+    // Add this to your main navbar section
+    // .navbar {
+    //   .hamburger { display: none; }
+    // }
+
+    .lesson-header {
+        h1.main-title {
+            font-size: 1.5rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+        }
+    }
+
+    .lesson-section .section-title {
+        font-size: 1.8rem;
+    }
+
+    .card {
+        padding: 1.5rem;
+    }
+
+    // Make quiz options vertical on smaller screens
+    .quiz-question .options {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+// For small mobile phones (max-width: 480px)
+@media (max-width: 480px) {
+    .navbar .logo {
+        font-size: 1.5rem;
+    }
+
+    .book-subtitle {
+        display: none; // Hide subtitle on very small screens
+    }
+
+    .lesson-header h2 {
+        font-size: 1.8rem;
+    }
+
+    .dialogue-content {
+        .ar {
+            font-size: 1.2rem;
+        }
+
+        .en {
+            font-size: 1rem;
+        }
+    }
+
+    .vocab-card h4 {
+        font-size: 1.3rem;
+    }
+}
+
+//==================================
+// 7. Animations
+//==================================
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
