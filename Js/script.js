@@ -79,4 +79,17 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Mobile dropdown toggle (within hamburger menu)
+document.querySelectorAll('.nav-dropdown > a').forEach(link => {
+    link.addEventListener('click', (e) => {
+        const isMobile = window.innerWidth <= 768;
+        const parent = link.parentElement; // .nav-dropdown
+
+        if (isMobile && parent.classList.contains('nav-dropdown')) {
+            e.preventDefault();
+            parent.classList.toggle('dropdown-open');
+        }
+    });
+});
+
 });

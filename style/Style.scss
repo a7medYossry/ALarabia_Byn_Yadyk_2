@@ -22,7 +22,7 @@
     --navbar-bg-dark: rgba(20, 20, 20, 0.85);
     --shadow-dark: 0 4px 15px rgba(0, 0, 0, 0.3);
 
-    // Color Coding
+    // Color Coding - Unit 9
     --color1: #E91E63; // Dictionary
     --color2: #9C27B0; // Also
     --color3: #4CAF50; // Reading
@@ -32,13 +32,14 @@
     --color7: #795548; // Total
     --color8: #607D8B; // Thirty
     --color9: #2196F3; // Say
-    // Color Coding for Dialogue 2
+
+    // Color Coding - Unit 9: Dialogue 2
     --d2-color1: #00BCD4; // Fish
     --d2-color2: #8D6E63; // Meat
     --d2-color3: #FFEB3B; // Chicken
     --d2-color4: #E91E63; // You (f.) want
     --d2-color5: #4CAF50; // Cucumber
-    --d2-color6: #EFEBE9; // Onion (light color for dark mode)
+    --d2-color6: #EFEBE9; // Onion
     --d2-color7: #F44336; // Tomatoes
     --d2-color8: #CFD8DC; // Sugar
     --d2-color9: #795548; // Tea
@@ -47,7 +48,7 @@
     --d2-color12: #B0BEC5; // Box of salt
     --d2-color13: #673AB7; // Eighty
 
-    // Color Coding for Dialogue 3
+    // Color Coding - Unit 9: Dialogue 3
     --d3-color1: #9C27B0; // Shirt
     --d3-color2: #009688; // Section
     --d3-color3: #FAFAFA; // White
@@ -60,6 +61,61 @@
     --d3-color10: #4CAF50; // I will buy
     --d3-color11: #795548; // Thobes
     --d3-color12: #607D8B; // Fifty
+
+    // Color Coding - Unit 10: Weather (الجو)
+    --w-color1: #1e88e5; // الجو
+    --w-color2: #00acc1; // الخارج
+    --w-color3: #5e35b1; // السماء
+    --w-color4: #3949ab; // تمطر
+    --w-color5: #00897b; // الخريف
+    --w-color6: #c2185b; // ثوبك
+    --w-color7: #d81b60; // مبتلّ
+    --w-color8: #8e24aa; // المعطف
+    --w-color9: #5c6bc0; // تركته
+    --w-color10: #26a69a; // الشركة
+    --w-color11: #7cb342; // المظلة
+    --w-color12: #7cb342; // تركتها
+    --w-color13: #ffa726; // السيارة
+    --w-color14: #fb8c00; // دافئ
+    --w-color15: #1565c0; // بارك الله فيك
+    --w-color16: #e53935; // نخرج
+    --w-color17: #43a047; // السوق
+    --w-color18: #00838f; // الماء
+    --w-color19: #006064; // كثير جدًا
+    --w-color20: #455a64; // نفعل
+    --w-color21: #37474f; // نبقى
+    --w-color22: #263238; // الليلة
+    --w-color23: #607d8b; // البيت
+    --w-color24: #0d47a1; // نذهب
+    --w-color25: #1a237e; // غداً
+    --w-color26: #1976d2; // إن شاء الله
+    --w-color27: #388e3c; // فكرة طيبة
+
+    // Color Coding - Unit 10: Dialogue 2 (Phone Call)
+    --w2-color1: #E91E63; // السلام عليكم
+    --w2-color2: #2196F3; // أتكلم
+    --w2-color3: #9C27B0; // كلام
+    --w2-color4: #F44336; // بارد / حار
+    --w2-color5: #4CAF50; // كم
+    --w2-color6: #00BCD4; // درجة الحرارة
+    --w2-color7: #FF9800; // تحت / فوق
+    --w2-color8: #607D8B; // كان
+    --w2-color9: #795548; // معتدل
+    --w2-color10: #3F51B5; // قضى
+    --w2-color11: #009688; // سأقضيها
+    --w2-color12: #FF5722; // إن شاء الله
+
+    // Color Coding - Unit 10: Dialogue 3 (Wilderness/Picnic) - <<< NEW >>>
+    --w3-color1: #4CAF50; // معتدل (Green)
+    --w3-color2: #f44336; // الحر (Red)
+    --w3-color3: #2196F3; // البرد (Blue)
+    --w3-color4: #9C27B0; // العطلة (Purple)
+    --w3-color5: #00BCD4; // الشاطئ/البحر (Cyan)
+    --w3-color6: #795548; // البر (Brown/Earth)
+    --w3-color7: #FFC107; // أحضر (Amber)
+    --w3-color8: #FF5722; // خيمة (Deep Orange)
+    --w3-color9: #E91E63; // سجادة (Pink)
+    --w3-color10: #3F51B5; // حضر/أسرة (Indigo)
 }
 
 * {
@@ -94,21 +150,13 @@ body {
     padding: 0 20px;
 }
 
-// Dark Mode Class
+// Dark Mode Class adjustments
 body.dark-mode {
     background-color: var(--bg-color-dark);
     color: var(--text-color-dark);
 
-    .d2-color6 {
-        color: #A1887F;
-    }
-
-    // Darker onion color for dark mode
-    .d2-color10 {
-        color: #BCAAA4;
-    }
-
-    // Lighter coffee color for dark mode
+    .d2-color6 { color: #A1887F; }
+    .d2-color10 { color: #BCAAA4; }
 }
 
 //==================================
@@ -142,26 +190,35 @@ body.dark-mode {
     font-weight: bold;
 }
 
-// Color coding classes
+// Color Loops
 @for $i from 1 through 9 {
-    .color#{$i} {
-        color: var(--color#{$i});
-        font-weight: bold;
-    }
+    .color#{$i} { color: var(--color#{$i}); font-weight: bold; }
 }
 
 @for $i from 1 through 13 {
-    .d2-color#{$i} {
-        color: var(--d2-color#{$i});
-        font-weight: bold;
-    }
+    .d2-color#{$i} { color: var(--d2-color#{$i}); font-weight: bold; }
 }
 
 @for $i from 1 through 12 {
-    .d3-color#{$i} {
-        color: var(--d3-color#{$i});
-        font-weight: bold;
-    }
+    .d3-color#{$i} { color: var(--d3-color#{$i}); font-weight: bold; }
+}
+
+@for $i from 1 through 27 {
+    .w-color#{$i} { color: var(--w-color#{$i}); font-weight: bold; }
+}
+
+@for $i from 1 through 12 {
+    .w2-color#{$i} { color: var(--w2-color#{$i}); font-weight: bold; }
+}
+
+// <<< NEW LOOP FOR UNIT 10 DIALOGUE 3 >>>
+@for $i from 1 through 10 {
+    .w3-color#{$i} { color: var(--w3-color#{$i}); font-weight: bold; }
+}
+
+// Utility for wide cards
+.full-width-card {
+    grid-column: 1 / -1; 
 }
 
 //==================================
@@ -181,17 +238,8 @@ body.dark-mode {
     body.dark-mode & {
         background: var(--navbar-bg-dark);
         box-shadow: var(--shadow-dark);
-
-        .d3-color3 {
-            color: #BDBDBD;
-        }
-
-        // Darker white for dark mode
-        .d3-color7 {
-            color: #E0E0E0;
-        }
-
-        // Lighter black for dark mode
+        .d3-color3 { color: #BDBDBD; }
+        .d3-color7 { color: #E0E0E0; }
     }
 
     .container {
@@ -206,13 +254,22 @@ body.dark-mode {
         font-weight: 700;
     }
 
+    .logo-link {
+        text-decoration: none;
+    }
+
+    .book-subtitle {
+        font-size: 0.9rem;
+        font-weight: 400;
+        color: var(--secondary-color);
+        margin-right: 5px;
+    }
+
     .nav-links {
         display: flex;
         list-style: none;
 
-        li {
-            margin: 0 15px;
-        }
+        li { margin: 0 15px; }
 
         a {
             text-decoration: none;
@@ -236,17 +293,96 @@ body.dark-mode {
 
             &:hover {
                 color: var(--primary-color);
-
-                &::after {
-                    width: 100%;
-                    left: 0;
-                    right: auto;
-                }
+                &::after { width: 100%; left: 0; right: auto; }
             }
         }
     }
+
+    .nav-controls {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .hamburger {
+        display: none; // Hide on desktop
+    }
 }
 
+// Dropdown Menu
+.nav-dropdown {
+    position: relative;
+
+    > a {
+        position: relative;
+        padding-right: 1.5rem;
+        &::after {
+            content: "▼";
+            position: absolute;
+            right: 0.4rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.6rem;
+            opacity: 0.5;
+            transition: opacity 0.2s;
+        }
+        &:hover::after, &:focus::after { opacity: 1; }
+    }
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0; 
+    background-color: var(--card-bg-light);
+    border-radius: 8px;
+    box-shadow: var(--shadow-light);
+    list-style: none;
+    padding: 0.5rem 0;
+    margin: 0.5rem 0 0 0;
+    min-width: 200px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    z-index: 100;
+
+    .nav-dropdown:hover &, 
+    .nav-dropdown:focus-within & {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    body.dark-mode & {
+        background-color: var(--card-bg-dark);
+        box-shadow: var(--shadow-dark);
+    }
+
+    li { margin: 0; }
+
+    a {
+        display: block;
+        padding: 0.75rem 1.25rem;
+        color: var(--text-color-light);
+        text-decoration: none;
+        font-size: 0.95rem;
+        font-weight: 500;
+        transition: background-color 0.2s, color 0.2s;
+
+        &:hover {
+            background-color: rgba(0, 123, 255, 0.1);
+            color: var(--primary-color);
+        }
+    }
+
+    body.dark-mode & a {
+        color: var(--text-color-dark);
+        &:hover { background-color: rgba(0, 123, 255, 0.2); }
+    }
+}
+
+// Theme Toggle
 .theme-toggle-btn {
     background: none;
     border: 1px solid var(--secondary-color);
@@ -261,18 +397,11 @@ body.dark-mode {
     align-items: center;
     transition: all 0.3s;
 
-    .fa-moon {
-        display: none;
-    }
+    .fa-moon { display: none; }
 
     body.dark-mode & {
-        .fa-sun {
-            display: none;
-        }
-
-        .fa-moon {
-            display: inline-block;
-        }
+        .fa-sun { display: none; }
+        .fa-moon { display: inline-block; }
     }
 
     &:hover {
@@ -285,27 +414,40 @@ body.dark-mode {
 //==================================
 // 4. Main Content Sections
 //==================================
-main {
-    padding-top: 3rem;
-}
+main { padding-top: 3rem; }
 
 .lesson-header {
     text-align: center;
     margin-bottom: 3rem;
     animation: fadeInDown 0.8s ease-out;
 
-    h2 {
-        font-size: 2.5rem;
-        margin-bottom: 0.5rem;
+    h1.main-title {
+        font-size: 1.8rem;
+        font-weight: 400;
+        color: var(--secondary-color);
+        margin-bottom: 0.25rem;
+        body.dark-mode & { color: #aaa; }
     }
+
+    .en-main-title {
+        font-size: 1rem;
+        color: #999;
+        body.dark-mode & { color: #777; }
+    }
+
+    h2 { font-size: 2.5rem; margin-bottom: 0.5rem; }
 
     .en-translation {
         font-size: 1.2rem;
         color: var(--secondary-color);
+        body.dark-mode & { color: #aaa; }
+    }
 
-        body.dark-mode & {
-            color: #aaa;
-        }
+    .title-divider {
+        width: 80px;
+        margin: 1.5rem auto;
+        border: 1px solid var(--primary-color);
+        opacity: 0.5;
     }
 }
 
@@ -354,18 +496,12 @@ main {
         display: block;
     }
 
-    .ar {
-        font-size: 1.3rem;
-        margin-top: 0.25rem;
-    }
+    .ar { font-size: 1.3rem; margin-top: 0.25rem; }
 
     .en {
         font-size: 1.1rem;
         color: var(--secondary-color);
-
-        body.dark-mode & {
-            color: #aaa;
-        }
+        body.dark-mode & { color: #aaa; }
     }
 }
 
@@ -380,18 +516,11 @@ main {
     text-align: center;
     padding: 1.5rem;
 
-    h4 {
-        font-size: 1.5rem;
-        font-weight: 700;
-        margin-bottom: 0.5rem;
-    }
+    h4 { font-size: 1.5rem; font-weight: 700; margin-bottom: 0.5rem; }
 
     p {
         color: var(--secondary-color);
-
-        body.dark-mode & {
-            color: #aaa;
-        }
+        body.dark-mode & { color: #aaa; }
     }
 
     .audio-icon {
@@ -399,10 +528,7 @@ main {
         margin-left: 10px;
         color: var(--primary-color);
         transition: transform 0.2s;
-
-        &:hover {
-            transform: scale(1.2);
-        }
+        &:hover { transform: scale(1.2); }
     }
 }
 
@@ -455,15 +581,92 @@ main {
             color: #fff;
         }
 
-        &:disabled {
-            cursor: not-allowed;
-            opacity: 0.7;
+        &:disabled { cursor: not-allowed; opacity: 0.7; }
+    }
+
+    .feedback { margin-top: 1rem; font-weight: bold; }
+}
+
+// <<< NEW STYLES FOR UNIT 10 CONTENT >>>
+
+// 1. Seasons List
+.seasons-list {
+    list-style: none;
+    padding: 0;
+    
+    li {
+        padding: 1rem;
+        border-bottom: 1px solid #eee;
+        font-size: 1.1rem;
+        
+        &:last-child { border-bottom: none; }
+
+        .season {
+            font-weight: bold;
+            color: var(--primary-color);
+            font-size: 1.3rem;
+            margin-left: 10px;
         }
     }
 
-    .feedback {
-        margin-top: 1rem;
+    body.dark-mode & li { border-bottom-color: #333; }
+}
+
+// 2. Grammar Table
+.grammar-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 1.1rem;
+
+    th, td {
+        padding: 12px 15px;
+        text-align: right; // RTL
+        border-bottom: 1px solid #ddd;
+    }
+
+    th {
+        background-color: rgba(0, 123, 255, 0.1);
+        color: var(--primary-color);
         font-weight: bold;
+    }
+
+    tr:hover { background-color: rgba(0,0,0,0.02); }
+
+    // Dark Mode adjustments
+    body.dark-mode & {
+        th, td { border-bottom-color: #444; }
+        th { background-color: rgba(0, 123, 255, 0.2); }
+        tr:hover { background-color: rgba(255,255,255,0.05); }
+    }
+}
+
+// 3. Vocab List Style (inside cards)
+.vocab-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 1rem;
+
+    li {
+        margin-bottom: 0.8rem;
+        font-size: 1.1rem;
+        position: relative;
+        padding-right: 1.5rem;
+
+        &::before {
+            content: "•";
+            color: var(--primary-color);
+            font-weight: bold;
+            position: absolute;
+            right: 0;
+        }
+        
+        small {
+            display: block;
+            margin-top: 5px;
+            color: var(--secondary-color);
+            font-size: 0.9rem;
+        }
     }
 }
 
@@ -484,49 +687,17 @@ main {
     }
 }
 
-// Inside the .navbar section in your SCSS
-.logo-link {
-    text-decoration: none;
+//==================================
+// 7. Animations
+//==================================
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-.book-subtitle {
-    font-size: 0.9rem;
-    font-weight: 400;
-    color: var(--secondary-color);
-    margin-right: 5px;
-}
-
-// Inside the .lesson-header section or a new section in your SCSS
-.main-title {
-    font-size: 1.8rem;
-    font-weight: 400;
-    color: var(--secondary-color);
-    margin-bottom: 0.25rem;
-
-    body.dark-mode & {
-        color: #aaa;
-    }
-}
-
-.en-main-title {
-    font-size: 1rem;
-    color: #999;
-
-    body.dark-mode & {
-        color: #777;
-    }
-}
-
-.title-divider {
-    width: 80px;
-    margin: 1.5rem auto;
-    border: 1px solid var(--primary-color);
-    opacity: 0.5;
-}
-
-// ... Inside your .navbar section ...
-.hamburger {
-    display: none; // Hide on desktop
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 //==================================
@@ -535,9 +706,7 @@ main {
 
 // For Tablets and smaller devices (max-width: 768px)
 @media (max-width: 768px) {
-    .container {
-        padding: 0 15px;
-    }
+    .container { padding: 0 15px; }
 
     // --- Navbar for mobile ---
     .navbar {
@@ -554,28 +723,12 @@ main {
             box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
             transition: right 0.4s ease-in-out;
 
-            body.dark-mode & {
-                background-color: var(--card-bg-dark);
-            }
+            body.dark-mode & { background-color: var(--card-bg-dark); }
 
-            li {
-                margin: 20px 0;
-            }
+            li { margin: 20px 0; }
+            a { font-size: 1.2rem; }
 
-            a {
-                font-size: 1.2rem;
-            }
-
-            // Class to show the menu
-            &.active {
-                right: 0;
-            }
-        }
-
-        .nav-controls {
-            display: flex;
-            align-items: center;
-            gap: 15px;
+            &.active { right: 0; }
         }
 
         .hamburger {
@@ -585,93 +738,59 @@ main {
             color: inherit;
             font-size: 1.5rem;
             cursor: pointer;
-            z-index: 1001; // Keep it above the nav-links
+            z-index: 1001; 
         }
     }
 
-    // Hide hamburger by default in the main SCSS for desktop
-    // Add this to your main navbar section
-    // .navbar {
-    //   .hamburger { display: none; }
-    // }
+    // Dropdown in Mobile
+    .nav-dropdown {
+        position: static;
+        > a::after { content: "►"; right: 0.8rem; }
+        &.dropdown-open > a::after { content: "▼"; }
+    }
 
+    .dropdown-menu {
+        position: static;
+        box-shadow: none;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        padding: 0;
+        margin: 0;
+        background: transparent;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-in-out;
+
+        .nav-dropdown.dropdown-open & { max-height: 300px; }
+    }
+
+    .nav-links.active .dropdown-menu a {
+        padding-right: 2.5rem;
+        font-size: 1rem;
+    }
+
+    // Typography Adjustments
     .lesson-header {
-        h1.main-title {
-            font-size: 1.5rem;
-        }
-
-        h2 {
-            font-size: 2rem;
-        }
+        h1.main-title { font-size: 1.5rem; }
+        h2 { font-size: 2rem; }
     }
 
-    .lesson-section .section-title {
-        font-size: 1.8rem;
-    }
-
-    .card {
-        padding: 1.5rem;
-    }
-
-    // Make quiz options vertical on smaller screens
-    .quiz-question .options {
-        grid-template-columns: 1fr;
-    }
+    .lesson-section .section-title { font-size: 1.8rem; }
+    .card { padding: 1.5rem; }
+    
+    // Quiz Stack
+    .quiz-question .options { grid-template-columns: 1fr; }
 }
-
 
 // For small mobile phones (max-width: 480px)
 @media (max-width: 480px) {
-    .navbar .logo {
-        font-size: 1.5rem;
-    }
-
-    .book-subtitle {
-        display: none; // Hide subtitle on very small screens
-    }
-
-    .lesson-header h2 {
-        font-size: 1.8rem;
-    }
-
+    .navbar .logo { font-size: 1.5rem; }
+    .book-subtitle { display: none; }
+    .lesson-header h2 { font-size: 1.8rem; }
     .dialogue-content {
-        .ar {
-            font-size: 1.2rem;
-        }
-
-        .en {
-            font-size: 1rem;
-        }
+        .ar { font-size: 1.2rem; }
+        .en { font-size: 1rem; }
     }
-
-    .vocab-card h4 {
-        font-size: 1.3rem;
-    }
-}
-
-//==================================
-// 7. Animations
-//==================================
-@keyframes fadeInDown {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    .vocab-card h4 { font-size: 1.3rem; }
 }
