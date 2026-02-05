@@ -116,7 +116,42 @@
     --w3-color8: #FF5722; // خيمة (Deep Orange)
     --w3-color9: #E91E63; // سجادة (Pink)
     --w3-color10: #3F51B5; // حضر/أسرة (Indigo)
+
+    // Color Coding - Unit 11: People and Places (الناس والأماكن) - <<< NEW >>>
+    --u11-color1: #f44336; // تركت (Leave) - Red
+    --u11-color2: #00BCD4; // انتقلت (Moved) - Cyan
+    --u11-color3: #673AB7; // مدير (Manager) - Deep Purple
+    --u11-color4: #E91E63; // سعيدا (Happy) - Pink
+    --u11-color5: #795548; // بلد (Country) - Brown
+    --u11-color6: #3F51B5; // رأيك (Opinion) - Indigo
+    --u11-color7: #FF9800; // تستغرق (Take time) - Orange
+    --u11-color8: #2196F3; // الرحلة (Trip) - Blue
+    --u11-color9: #607D8B; // تقريبا (Approximately) - Blue Grey
+
+    // Color Coding - Unit 11: Dialogue 2 (Immigration) - <<< NEW >>>
+    --u11-color10: #009688; // حضرت (Came) - Teal
+    --u11-color11: #455A64; // سنوات (Years) - Dark Blue Grey
+    --u11-color12: #9C27B0; // الجنسية (Citizenship) - Purple
+    --u11-color13: #4CAF50; // جواز السفر (Passport) - Green
+    --u11-color14: #E91E63; // تزوجت (Married) - Pink
+    --u11-color15: #FF5722; // أستاذ (Professor) - Deep Orange
+    --u11-color16: #3F51B5; // تزور (Visit) - Indigo
+    // Color Coding - Unit 11: Dialogue 3 (City vs Village) - <<< NEW >>>
+    --u11-d3-color1: #2E7D32; // تسكن (Live) - Dark Green
+    --u11-d3-color2: #8BC34A; // القرية (Village) - Light Green
+    --u11-d3-color3: #546E7A; // المدينة (City) - Blue Grey
+    --u11-d3-color4: #00BCD4; // هادئة (Quiet) - Cyan
+    --u11-d3-color5: #03A9F4; // الهواء (Air) - Light Blue
+    --u11-d3-color6: #29B6F6; // نقي (Pure) - Sky Blue
+    --u11-d3-color7: #D32F2F; // ضوضاء (Noise) - Red
+    --u11-d3-color8: #4E342E; // تلوث (Pollution) - Dark Brown
+    --u11-d3-color9: #FF8F00; // ازدحام (Crowdedness) - Amber
+    --u11-d3-color10: #AB47BC; // واو الحال (While) - Purple
+    --u11-d3-color11: #1976D2; // ليس هناك مشكلة (No problem) - Blue
+    --u11-d3-color12: #37474F; // قطار (Train) - Dark Grey
 }
+
+
 
 * {
     margin: 0;
@@ -214,7 +249,20 @@ body.dark-mode {
 // <<< NEW LOOP FOR UNIT 10 DIALOGUE 3 >>>
 @for $i from 1 through 10 {
     .w3-color#{$i} { color: var(--w3-color#{$i}); font-weight: bold; }
+
 }
+
+
+// <<< NEW LOOP FOR UNIT 11 >>>
+@for $i from 1 through 16 {  // <--- تم التغيير هنا إلى 16
+    .u11-color#{$i} { color: var(--u11-color#{$i}); font-weight: bold; }
+}
+
+// <<< NEW LOOP FOR UNIT 11 DIALOGUE 3 >>>
+@for $i from 1 through 12 {
+    .u11-d3-color#{$i} { color: var(--u11-d3-color#{$i}); font-weight: bold; }
+}
+
 
 // Utility for wide cards
 .full-width-card {
