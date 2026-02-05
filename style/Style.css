@@ -114,6 +114,18 @@
   --u11-color14: #E91E63;
   --u11-color15: #FF5722;
   --u11-color16: #3F51B5;
+  --u11-d3-color1: #2E7D32;
+  --u11-d3-color2: #8BC34A;
+  --u11-d3-color3: #546E7A;
+  --u11-d3-color4: #00BCD4;
+  --u11-d3-color5: #03A9F4;
+  --u11-d3-color6: #29B6F6;
+  --u11-d3-color7: #D32F2F;
+  --u11-d3-color8: #4E342E;
+  --u11-d3-color9: #FF8F00;
+  --u11-d3-color10: #AB47BC;
+  --u11-d3-color11: #1976D2;
+  --u11-d3-color12: #37474F;
 }
 
 * {
@@ -676,6 +688,66 @@ body.dark-mode .card:hover {
 
 .u11-color16 {
   color: var(--u11-color16);
+  font-weight: bold;
+}
+
+.u11-d3-color1 {
+  color: var(--u11-d3-color1);
+  font-weight: bold;
+}
+
+.u11-d3-color2 {
+  color: var(--u11-d3-color2);
+  font-weight: bold;
+}
+
+.u11-d3-color3 {
+  color: var(--u11-d3-color3);
+  font-weight: bold;
+}
+
+.u11-d3-color4 {
+  color: var(--u11-d3-color4);
+  font-weight: bold;
+}
+
+.u11-d3-color5 {
+  color: var(--u11-d3-color5);
+  font-weight: bold;
+}
+
+.u11-d3-color6 {
+  color: var(--u11-d3-color6);
+  font-weight: bold;
+}
+
+.u11-d3-color7 {
+  color: var(--u11-d3-color7);
+  font-weight: bold;
+}
+
+.u11-d3-color8 {
+  color: var(--u11-d3-color8);
+  font-weight: bold;
+}
+
+.u11-d3-color9 {
+  color: var(--u11-d3-color9);
+  font-weight: bold;
+}
+
+.u11-d3-color10 {
+  color: var(--u11-d3-color10);
+  font-weight: bold;
+}
+
+.u11-d3-color11 {
+  color: var(--u11-d3-color11);
+  font-weight: bold;
+}
+
+.u11-d3-color12 {
+  color: var(--u11-d3-color12);
   font-weight: bold;
 }
 
